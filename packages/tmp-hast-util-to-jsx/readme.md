@@ -1,3 +1,6 @@
+# tmp-hast-util-to-jsx
+This a package heavily based on `hast-util-to-html`. It's purpose is to transform HAST to JSX.
+
 # hast-util-to-html [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
 Transform [HAST][] to HTML.

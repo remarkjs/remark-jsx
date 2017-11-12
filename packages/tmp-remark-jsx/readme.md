@@ -1,3 +1,33 @@
+# tmp-remark-jsx
+This a package heavily based on `hast-util-to-html`. It's purpose is to compile markdown to JSX with [**remark**][remark].
+
+Example of usage
+
+```javascript
+var React = require('react');
+var fs = require('fs');
+var unified = require('unified');
+var markdown = require('remark-parse');
+var jsx = require('remark-jsx');
+
+class MyComponent extends React.Component {
+  render() {
+    return <span>Hello {this.props.name}!</span>
+  }
+}
+
+unified()
+  .use(markdown)
+  .use(jsx, {componentMap: {
+    MyComponent: MyComponent
+  }})
+  .process('<MyComponent name="markdown" /> This is **amazing**', function (err, jsxElement) {
+    if (err) throw err;
+    console.log('jsxElement', jsxElement);
+  });
+
+```
+
 # remark-html [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
 Compile markdown to HTML with [**remark**][remark].

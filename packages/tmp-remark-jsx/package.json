@@ -10,9 +10,9 @@
     "compile",
     "remark"
   ],
-  "repository": "https://github.com/wooorm/remark-html",
-  "bugs": "https://github.com/wooorm/remark-html/issues",
-  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "repository": "https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/tmp-remark-jsx",
+  "bugs": "https://github.com/fazouane-marouane/remark-jsx/issues",
+  "author": "",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
     "Ben Briggs <beneb.info@gmail.com>",
