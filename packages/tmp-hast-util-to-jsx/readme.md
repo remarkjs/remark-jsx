@@ -1,7 +1,9 @@
 # tmp-hast-util-to-jsx
-This a package heavily based on `hast-util-to-html`. It's purpose is to transform HAST to JSX.
 
-# hast-util-to-html [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+This a package heavily based on `hast-util-to-html`.
+Its purpose is to transform HAST to JSX.
+
+## hast-util-to-html readme
 
 Transform [HAST][] to HTML.
 
@@ -136,14 +138,6 @@ you completely trust the content.
 [MIT][license] © [Titus Wormer][author]
 
 <!-- Definitions -->
-
-[travis-badge]: https://img.shields.io/travis/syntax-tree/hast-util-to-html.svg
-
-[travis]: https://travis-ci.org/syntax-tree/hast-util-to-html
-
-[codecov-badge]: https://img.shields.io/codecov/c/github/syntax-tree/hast-util-to-html.svg
-
-[codecov]: https://codecov.io/github/syntax-tree/hast-util-to-html
 
 [npm]: https://docs.npmjs.com/cli/install
 

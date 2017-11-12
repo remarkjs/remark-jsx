@@ -1,7 +1,9 @@
 # tmp-remark-jsx
-This a package heavily based on `hast-util-to-html`. It's purpose is to compile markdown to JSX with [**remark**][remark].
 
-Example of usage
+This a package heavily based on `hast-util-to-html`.
+Its purpose is to compile markdown to JSX with [**remark**][remark].
+
+## Example of usage
 
 ```javascript
 var React = require('react');
@@ -25,10 +27,9 @@ unified()
     if (err) throw err;
     console.log('jsxElement', jsxElement);
   });
-
 ```
 
-# remark-html [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+## remark-html readme
 
 Compile markdown to HTML with [**remark**][remark].
 
@@ -194,20 +195,6 @@ For example, the following node:
 ## License
 
 [MIT][license] © [Titus Wormer][author]
-
-<!-- Definitions -->
-
-[build-badge]: https://img.shields.io/travis/wooorm/remark-html.svg
-
-[build-status]: https://travis-ci.org/wooorm/remark-html
-
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-html.svg
-
-[coverage-status]: https://codecov.io/github/wooorm/remark-html
-
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
-
-[chat]: https://gitter.im/wooorm/remark
 
 [license]: LICENSE
 
