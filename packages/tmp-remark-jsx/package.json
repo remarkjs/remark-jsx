@@ -1,0 +1,79 @@
+{
+  "name": "tmp-remark-jsx",
+  "version": "6.0.1",
+  "description": "Compile Markdown to JSX with remark",
+  "license": "MIT",
+  "keywords": [
+    "markdown",
+    "html",
+    "stringify",
+    "compile",
+    "remark"
+  ],
+  "repository": "https://github.com/wooorm/remark-html",
+  "bugs": "https://github.com/wooorm/remark-html/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+    "Ben Briggs <beneb.info@gmail.com>",
+    "Seth Vincent <sethvincent@gmail.com>",
+    "Junyoung Choi <fluke8259@gmail.com>",
+    "Jonathan Soeder <jonathan.soeder@gmail.com>"
+  ],
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "hast-util-sanitize": "^1.0.0",
+    "tmp-hast-util-to-jsx": "^3.1.0",
+    "mdast-util-to-hast": "^2.1.1",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^14.0.0",
+    "commonmark.json": "^0.27.0",
+    "esmangle": "^1.0.0",
+    "is-hidden": "^1.0.1",
+    "nyc": "^11.0.0",
+    "remark": "^8.0.0",
+    "remark-cli": "^4.0.0",
+    "remark-github": "^7.0.0",
+    "remark-preset-wooorm": "^3.0.0",
+    "remark-toc": "^4.0.0",
+    "tape": "^4.0.0",
+    "to-vfile": "^2.0.0",
+    "xo": "^0.18.0"
+  },
+  "scripts": {
+    "build-md": "remark *.md doc/*.md -qfo",
+    "build-bundle": "browserify index.js --bare -s remarkJSX -t [ babelify --presets [ env react ] ] > tmp-remark-jsx.js",
+    "build-mangle": "esmangle tmp-remark-jsx.js > tmp-remark-jsx.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
+    "lint": "xo",
+    "test-api": "node test/index.js",
+    "test-coverage": "nyc --reporter lcov tape test/index.js",
+    "test": "npm run build && npm run lint && npm run test-coverage"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100
+  },
+  "xo": {
+    "space": true,
+    "esnext": false,
+    "ignores": [
+      "tmp-remark-jsx.js"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-wooorm"
+    ]
+  }
+}
