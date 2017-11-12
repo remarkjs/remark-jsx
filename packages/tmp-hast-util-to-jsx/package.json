@@ -1,6 +1,6 @@
 {
   "name": "tmp-hast-util-to-jsx",
-  "version": "3.1.0",
+  "version": "0.1.0",
   "description": "Transform HAST to HTML",
   "license": "MIT",
   "keywords": [
