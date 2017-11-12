@@ -10,7 +10,7 @@ var React = require('react');
 var fs = require('fs');
 var unified = require('unified');
 var markdown = require('remark-parse');
-var jsx = require('remark-jsx');
+var jsx = require('tmp-remark-jsx');
 
 class MyComponent extends React.Component {
   render() {
@@ -23,8 +23,9 @@ unified()
   .use(jsx, {componentMap: {
     MyComponent: MyComponent
   }})
-  .process('<MyComponent name="markdown" /> This is **amazing**', function (err, jsxElement) {
+  .process('<MyComponent name="markdown" /> This is **amazing**', function (err, file) {
     if (err) throw err;
+    var jsxElement = file.contents[0];
     console.log('jsxElement', jsxElement);
   });
 ```

@@ -39,6 +39,7 @@
     "esmangle": "^1.0.0",
     "is-hidden": "^1.0.1",
     "nyc": "^11.0.0",
+    "react": "^16.1.0",
     "remark": "^8.0.0",
     "remark-cli": "^4.0.0",
     "remark-github": "^7.0.0",
