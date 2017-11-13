@@ -21,7 +21,8 @@
     "Jonathan Soeder <jonathan.soeder@gmail.com>"
   ],
   "files": [
-    "index.js"
+    "index.js",
+    "react-element-parser.js"
   ],
   "dependencies": {
     "hast-util-sanitize": "^1.0.0",
