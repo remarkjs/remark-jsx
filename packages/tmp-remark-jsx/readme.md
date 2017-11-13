@@ -14,18 +14,18 @@ var jsx = require('tmp-remark-jsx');
 
 class MyComponent extends React.Component {
   render() {
-    return <span>Hello {this.props.name}!</span>
+    return React.createElement('span', {}, 'Hello ', this.props.name, '!');
   }
 }
 
 unified()
   .use(markdown)
   .use(jsx, {componentMap: {
-    MyComponent: MyComponent
+    'my-component': MyComponent
   }})
-  .process('<MyComponent name="markdown" /> This is **amazing**', function (err, file) {
+  .process('<my-component name="markdown"></my-component>\n This is **amazing**', function (err, file) {
     if (err) throw err;
-    var jsxElement = file.contents[0];
+    var jsxElement = file.contents;
     console.log('jsxElement', jsxElement);
   });
 ```

@@ -13,10 +13,10 @@ class MyComponent extends React.Component {
 unified()
   .use(markdown)
   .use(jsx, {componentMap: {
-    MyComponent: MyComponent
+    'my-component': MyComponent
   }})
-  .process('<MyComponent name="markdown" /> This is **amazing**', function (err, file) {
+  .process('<my-component name="markdown"></my-component>\n This is **amazing**', function (err, file) {
     if (err) throw err;
-    var jsxElement = file.contents[0];
-    console.log('jsxElement', JSON.stringify(jsxElement));
+    var jsxElement = file.contents;
+    console.log('jsxElement', jsxElement);
   });
