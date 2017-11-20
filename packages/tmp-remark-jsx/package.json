@@ -1,25 +1,19 @@
 {
-  "name": "tmp-remark-jsx",
+  "name": "@dumpster/remark-custom-element-to-hast",
   "version": "0.2.1",
-  "description": "Compile Markdown to JSX with remark",
+  "description": "Compile Markdown that contain custom element calls to HAST with remark",
   "license": "MIT",
   "keywords": [
     "markdown",
-    "html",
-    "stringify",
+    "hast",
+    "react",
+    "custom elements",
     "compile",
     "remark"
   ],
   "repository": "https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/tmp-remark-jsx",
   "bugs": "https://github.com/fazouane-marouane/remark-jsx/issues",
-  "author": "",
-  "contributors": [
-    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
-    "Ben Briggs <beneb.info@gmail.com>",
-    "Seth Vincent <sethvincent@gmail.com>",
-    "Junyoung Choi <fluke8259@gmail.com>",
-    "Jonathan Soeder <jonathan.soeder@gmail.com>"
-  ],
+  "author": "Marouane Fazouane <fazouanem3@gmail.com>",
   "files": [
     "index.js",
     "custom-element-parser.js"
@@ -54,8 +48,8 @@
   },
   "scripts": {
     "build-md": "remark *.md doc/*.md -qfo",
-    "build-bundle": "browserify index.js --bare -s remarkJSX -t [ babelify --presets [ env ] ] > tmp-remark-jsx.js",
-    "build-mangle": "esmangle tmp-remark-jsx.js > tmp-remark-jsx.min.js",
+    "build-bundle": "browserify index.js --bare -s remarkCustomElement2HAST -t [ babelify --presets [ env ] ] > remark-custom-element-to-hast.js",
+    "build-mangle": "esmangle remark-custom-element-to-hast.js > remark-custom-element-to-hast.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
     "test-api": "node test/index.js",
@@ -72,7 +66,8 @@
     "space": true,
     "esnext": false,
     "ignores": [
-      "tmp-remark-jsx.js"
+      "remark-custom-element-to-hast.js",
+      "remark-custom-element-to-hast.min.js"
     ]
   },
   "remarkConfig": {

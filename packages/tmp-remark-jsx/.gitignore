@@ -3,5 +3,5 @@
 .nyc_output/
 coverage/
 node_modules/
-tmp-remark-jsx.js
-tmp-remark-jsx.min.js
+remark-custom-element-to-hast.js
+remark-custom-element-to-hast.min.js

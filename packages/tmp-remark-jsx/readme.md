@@ -1,4 +1,4 @@
-# tmp-remark-jsx
+# @dumpster/remark-custom-element-to-hast
 
 The purpose of this package is to compile markdown file that contain calls to custom elements into a simplified HAST using [**remark**][remark].
 The output HAST may later be transformed into react element for example.
@@ -9,7 +9,7 @@ The output HAST may later be transformed into react element for example.
 const beautify = require("json-beautify");
 const unified = require('unified');
 const parseMD = require('remark-parse');
-const customElementCompiler = require('tmp-remark-jsx');
+const customElementCompiler = require('@dumpster/remark-custom-element-to-hast');
 
 const processor = unified()
   .use(parseMD)
