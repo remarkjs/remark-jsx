@@ -22,28 +22,30 @@
   ],
   "files": [
     "index.js",
-    "react-element-parser.js"
+    "custom-element-parser.js"
   ],
   "dependencies": {
-    "hast-util-sanitize": "^1.0.0",
+    "hast-util-raw": "^2.0.1",
     "mdast-util-to-hast": "^2.1.1",
-    "tmp-hast-util-to-jsx": "^0.2.0",
+    "unist-util-map": "^1.0.3",
+    "unist-util-remove-position": "^1.1.1",
     "xtend": "^4.0.1"
   },
   "devDependencies": {
+    "json-beautify": "^1.0.1",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^14.0.0",
     "commonmark.json": "^0.27.0",
     "esmangle": "^1.0.0",
     "is-hidden": "^1.0.1",
     "nyc": "^11.0.0",
-    "react": "^16.1.0",
+    "rehype-parse": "^4.0.0",
     "remark": "^8.0.0",
     "remark-cli": "^4.0.0",
     "remark-github": "^7.0.0",
+    "remark-html": "^6.0.1",
     "remark-preset-wooorm": "^3.0.0",
     "remark-toc": "^4.0.0",
     "tape": "^4.0.0",
@@ -52,7 +54,7 @@
   },
   "scripts": {
     "build-md": "remark *.md doc/*.md -qfo",
-    "build-bundle": "browserify index.js --bare -s remarkJSX -t [ babelify --presets [ env react ] ] > tmp-remark-jsx.js",
+    "build-bundle": "browserify index.js --bare -s remarkJSX -t [ babelify --presets [ env ] ] > tmp-remark-jsx.js",
     "build-mangle": "esmangle tmp-remark-jsx.js > tmp-remark-jsx.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",

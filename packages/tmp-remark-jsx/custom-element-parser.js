@@ -7,21 +7,21 @@ var doubleQuoted = '"[^"]*"';
 var attributeValue = '(?:' + unquoted + '|' + singleQuoted + '|' + doubleQuoted + ')';
 var attribute = '(?:\\s+' + attributeName + '(?:\\s*=\\s*' + attributeValue + ')?)';
 
-module.exports = blockJSXFactory;
+module.exports = blockCustomElementFactory;
 
 var C_TAB = '\t';
 var C_SPACE = ' ';
 var C_NEWLINE = '\n';
 var C_LT = '<';
 
-function blockJSXFactory(componentMap) {
-  var components = Object.keys(componentMap).join('|');
+function blockCustomElementFactory(componentWhitelist) {
+  var components = componentWhitelist.join('|');
 
   var openTag = '<(' + components + ')' + attribute + '*\\s*>';
   var autoCloseTag = '<(' + components + ')' + attribute + '*\\s*\\/>';
   var closeTag = '<\\/(' + components + ')\\s*>';
 
-  return function blockJSX(eat, value, silent) {
+  return function blockCustomElement(eat, value, silent) {
     var self = this;
     var blocks = self.options.blocks;
     var length = value.length;
