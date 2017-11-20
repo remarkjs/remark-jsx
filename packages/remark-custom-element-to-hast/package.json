@@ -11,7 +11,7 @@
     "compile",
     "remark"
   ],
-  "repository": "https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/tmp-remark-jsx",
+  "repository": "https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast",
   "bugs": "https://github.com/fazouane-marouane/remark-jsx/issues",
   "author": "Marouane Fazouane <fazouanem3@gmail.com>",
   "files": [

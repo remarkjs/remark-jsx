@@ -1,6 +1,7 @@
-# @dumpster/remark-custom-element-to-hast
+# [**@dumpster/remark-custom-element-to-hast**](https://github.com/dumpster/remark-custom-element-to-hast)
 
-The purpose of this package is to compile markdown file that contain calls to custom elements into a simplified HAST using [**remark**][remark].
+Compile markdown file that contain calls to custom elements into a simplified
+HAST using [**remark**][remark].
 The output HAST may later be transformed into react element for example.
 
 ## Example of usage
@@ -17,10 +18,10 @@ const processor = unified()
   .process('## Hello world!\n<MyStuff name="Hello">World<MyOtherStuff /></MyStuff>', function (err, file) {
     console.log(beautify(file.contents, null, 2, 100));
   });
-
 ```
 
-THe above example will output
+The above example will output:
+
 ```json
 {
   "type": "root",
