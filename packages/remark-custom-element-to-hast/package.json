@@ -1,6 +1,6 @@
 {
   "name": "@dumpster/remark-custom-element-to-hast",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Compile Markdown that contain custom element calls to HAST with remark",
   "license": "MIT",
   "keywords": [
