@@ -7,19 +7,45 @@ var doubleQuoted = '"[^"]*"';
 var attributeValue = '(?:' + unquoted + '|' + singleQuoted + '|' + doubleQuoted + ')';
 var attribute = '(?:\\s+' + attributeName + '(?:\\s*=\\s*' + attributeValue + ')?)';
 
-module.exports = blockCustomElementFactory;
+var raw2hast = require('hast-util-raw');
 
-var C_TAB = '\t';
-var C_SPACE = ' ';
-var C_NEWLINE = '\n';
-var C_LT = '<';
+module.exports = blockCustomElementFactory;
 
 function blockCustomElementFactory(componentWhitelist) {
   var components = componentWhitelist.join('|');
-
   var openTag = '<(' + components + ')' + attribute + '*\\s*>';
-  var autoCloseTag = '<(' + components + ')' + attribute + '*\\s*\\/>';
-  var closeTag = '<\\/(' + components + ')\\s*>';
+  var closeTag = '<\\/\\1\\s*>';
+  var autoCloseTag = new RegExp('<(' + components + ')' + attribute + '*\\s*\\/>');
+  var simpleTag = new RegExp(openTag + '(.*)' + closeTag);
+  function matchSimpleTag(value) {
+    var match = value.match(simpleTag);
+    if (match) {
+      return {
+        value: match[0],
+        name: match[1],
+        children: match[2],
+        startsAt: match.index,
+        endsAt: match[0].length + match.index
+      };
+    }
+    return null;
+  }
+  function matchAutoCloseTag(value) {
+    var match = value.match(autoCloseTag);
+    if (match) {
+      return {
+        value: match[0],
+        name: match[1],
+        children: null,
+        startsAt: match.index,
+        endsAt: match[0].length + match.index
+      };
+    }
+    return null;
+  }
+  function matchTag(value) {
+    return matchSimpleTag(value) || matchAutoCloseTag(value);
+  }
 
   return function blockCustomElement(eat, value, silent) {
     var self = this;
@@ -34,72 +60,22 @@ function blockCustomElementFactory(componentWhitelist) {
     var sequence;
     var subvalue;
 
-    var sequences = [
-      [new RegExp('^' + openTag), new RegExp(closeTag + '$'), false],
-      [new RegExp('^' + autoCloseTag + '$'), /^$/, false]
-    ];
+    var match = matchTag(value);
+    if (!match) return;
 
-    /* Eat initial spacing. */
-    while (index < length) {
-      character = value.charAt(index);
-
-      if (character !== C_TAB && character !== C_SPACE) {
-        break;
-      }
-
-      index++;
+    if (match.startsAt) {
+      var firstPart = value.slice(0, match.startsAt);
+      var now = eat.now();
+      var parsed = eat(firstPart)({
+        type: 'p',
+        value: this.tokenizeInline(firstPart, now)
+      });
+      return parsed.value;
     }
 
-    if (value.charAt(index) !== C_LT) {
-      return;
-    }
-
-    next = value.indexOf(C_NEWLINE, index + 1);
-    next = next === -1 ? length : next;
-    line = value.slice(index, next);
-    offset = -1;
-    count = sequences.length;
-
-    while (++offset < count) {
-      if (sequences[offset][0].test(line)) {
-        sequence = sequences[offset];
-        break;
-      }
-    }
-
-    if (!sequence) {
-      return;
-    }
-
-    if (silent) {
-      return sequence[2];
-    }
-
-    index = next;
-
-    if (!sequence[1].test(line)) {
-      while (index < length) {
-        next = value.indexOf(C_NEWLINE, index + 1);
-        next = next === -1 ? length : next;
-        line = value.slice(index + 1, next);
-
-        if (sequence[1].test(line)) {
-          if (line) {
-            index = next;
-          }
-
-          break;
-        }
-
-        index = next;
-      }
-    }
-
-    subvalue = value.slice(0, index);
-
-    return eat(subvalue)({
+    return eat(match.value)({
       type: 'html',
-      value: subvalue
+      value: match.value
     });
   };
 }

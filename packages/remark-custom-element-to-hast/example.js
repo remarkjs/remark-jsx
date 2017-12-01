@@ -6,8 +6,8 @@ const customElementCompiler = require('.');
 
 const processor = unified()
   .use(parseMD)
-  .use(customElementCompiler, {componentWhitelist: ['MyStuff', 'MyOtherStuff']})
-  .process('## Hello world!\n<MyStuff name="Hello">World<MyOtherStuff /></MyStuff>', function (err, file) {
+  .use(customElementCompiler, {componentWhitelist: ['MyComponent', 'MyOtherComponent']})
+  .process("*This* is a test <MyComponent>of how <MyOtherComponent name='stuff'>components'</MyOtherComponent> children</MyComponent> are handled", function (err, file) {
     console.log(beautify(file.contents, null, 2, 100));
     // then https://github.com/wooorm/remark-vdom/blob/master/index.js
   });
