@@ -20,10 +20,10 @@
   "author": "Marouane Fazouane <fazouanem3@gmail.com>",
   "files": [
     "index.js",
-    "custom-element-parser.js"
+    "custom-element-parser.js",
+    "smart-html-parser.js"
   ],
   "dependencies": {
-    "hast-util-raw": "^2.0.1",
     "mdast-util-to-hast": "^2.1.1",
     "unist-util-map": "^1.0.3",
     "unist-util-remove-position": "^1.1.1",
