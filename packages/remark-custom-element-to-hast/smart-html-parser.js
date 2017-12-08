@@ -126,6 +126,8 @@ function smartHtmlParser(componentWhitelist) {
             if (head.tagName !== t.tagName) {
               throw new Error();
             }
+            head.endsAt = t.endsAt;
+            head.innerEndsAt = t.startsAt;
             break;
           }
         case 'openTag':
@@ -134,7 +136,9 @@ function smartHtmlParser(componentWhitelist) {
               type: 'element',
               tagName: t.tagName,
               properties: t.properties,
-              children: []
+              children: [],
+              startsAt: t.starts,
+              innerStartsAt: t.endsAt,
             };
             stack[stack.length - 1].children.push(element);
             stack.push(element);
@@ -145,14 +149,17 @@ function smartHtmlParser(componentWhitelist) {
             var element = {
               type: 'element',
               tagName: t.tagName,
-              properties: t.properties
+              properties: t.properties,
+              children: [],
+              startsAt: t.starts,
+              endsAt: t.endsAt
             };
             stack[stack.length - 1].children.push(element);
             break;
           }
         default:
           {
-            var element = rawTransformer? rawTransformer(t) : {
+            var element = rawTransformer ? rawTransformer(t) : {
               type: 'text',
               value: t.value,
               startsAt: t.startsAt,
