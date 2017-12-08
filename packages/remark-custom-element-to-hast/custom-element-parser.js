@@ -45,7 +45,10 @@ function blockCustomElementFactory(componentWhitelist) {
         var nodes = acc.nodes;
         if (!stop) {
           if (!(n.type === 'element' || (n.type === 'text' && (n.value === ' ' || n.value === '\n')))) {
-            return [nodes, true];
+            return {
+              nodes: nodes, 
+              stop: true
+            };
           }
           nodes.push(n);
         }
