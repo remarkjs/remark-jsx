@@ -72,7 +72,7 @@
     "space": true,
     "esnext": false,
     "ignores": [
-      "-custom-element-to-hast.js",
+      "remark-custom-element-to-hast.js",
       "remark-custom-element-to-hast.min.js"
     ]
   },
