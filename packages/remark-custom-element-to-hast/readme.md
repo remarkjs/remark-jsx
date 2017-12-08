@@ -1,4 +1,4 @@
-# ![\*\*remark-custom-element-to-hast\*\*](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast)
+# ![remark-custom-element-to-hast](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast)
 
 [![npm version](https://badge.fury.io/js/%40dumpster%2Fremark-custom-element-to-hast.svg)](https://badge.fury.io/js/%40dumpster%2Fremark-custom-element-to-hast)
 [![][license-badge]][license]
