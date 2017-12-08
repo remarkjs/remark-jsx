@@ -1,6 +1,7 @@
-# ![**remark-custom-element-to-hast**](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast)
+# ![\*\*remark-custom-element-to-hast\*\*](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast)
+
 [![npm version](https://badge.fury.io/js/%40dumpster%2Fremark-custom-element-to-hast.svg)](https://badge.fury.io/js/%40dumpster%2Fremark-custom-element-to-hast)
-[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/fazouane-marouane/remark-jsx/blob/master/packages/remark-custom-element-to-hast/LICENSE)
+[![][license-badge]][license]
 
 Compile markdown file that contain calls to custom elements into a simplified
 HAST using [**remark**][remark].
@@ -49,3 +50,7 @@ The above example will output:
 ```
 
 [remark]: https://github.com/wooorm/remark
+
+[license-badge]: https://img.shields.io/github/license/mashape/apistatus.svg
+
+[license]: /LICENSE
