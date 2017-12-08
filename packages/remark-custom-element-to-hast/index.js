@@ -18,7 +18,7 @@ function plugin(options) {
 
   this.Compiler = function (node, file) {
     var hast = toHAST(node, {allowDangerousHTML: false});
-    var result = map(hast, function (node) {
+    var flattenedNodes = map(hast, function (node) {
       if (node.children) {
         node.children = node.children.reduce(function (acc, n) {
           if (n.type === 'text' && n.children) {
@@ -28,6 +28,12 @@ function plugin(options) {
           }
           return acc;
         }, []);
+      }
+      return node;
+    });
+    var result = map(flattenedNodes, function (node) {
+      if (node.unprocessed) {
+        return toHAST(node, {allowDangerousHTML: false});
       }
       return node;
     });

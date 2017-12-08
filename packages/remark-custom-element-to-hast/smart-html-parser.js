@@ -158,7 +158,7 @@ function smartHtmlParser(componentWhitelist) {
               startsAt: t.startsAt,
               endsAt: t.endsAt
             };
-            stack[stack.length - 1].children.push(element);
+            Array.prototype.push.apply(stack[stack.length - 1].children, element);
             break;
           }
       }

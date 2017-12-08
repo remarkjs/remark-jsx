@@ -12,20 +12,25 @@ function blockCustomElementFactory(componentWhitelist) {
     var blocks = self.options.blocks;
     var length = value.length;
 
-    var tree = parseHtml(value);
-    if (tree.children.length === 0 || (tree.children.length === 1 && tree.children[0].type === 'raw')) return;
-
-    if (tree.children[0].type === 'raw') {
-      var firstPart = value.slice(0, tree.children[0].endsAt);
+    var lastRawItemIndex = 0;
+    var dump = {type: "raw", children: []};
+    var tree = parseHtml(value, function (rawToken) {
+      var substringToEat = value.substring(lastRawItemIndex, rawToken.endsAt);
+      var substringToParse = value.substring(rawToken.startsAt, rawToken.endsAt);
       var now = eat.now();
-      var parsed = eat(firstPart)({
+      var parsed = eat(substringToEat)({
         type: 'p',
-        value: self.tokenizeInline(firstPart, now)
+        value: self.tokenizeInline(substringToParse, now)
+      }, dump);
+      lastRawItemIndex = rawToken.endsAt;
+      parsed.value.forEach(function (node) {
+        node.unprocessed = true;
       });
       return parsed.value;
-    }
+    });
+    if (tree.children.length === 0) return;
 
-    return eat(value)({
+    return eat(value.substring(lastRawItemIndex, value.length))({
       type: 'p',
       value: tree
     });
