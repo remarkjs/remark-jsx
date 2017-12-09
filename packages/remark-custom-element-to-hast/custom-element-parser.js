@@ -9,16 +9,16 @@ function blockCustomElementFactory(componentWhitelist) {
 
   var running = false;
 
-  return function blockCustomElement(eat, value, silent) {
-    if (running) return;
+  return function (eat, value) {
+    if (running) {
+      return;
+    }
     var self = this;
-    var blocks = self.options.blocks;
-    var length = value.length;
 
     try {
       running = true;
       var dump = {
-        type: "raw",
+        type: 'raw',
         children: []
       };
       var tree = parseHtml(value, function (rawToken) {
@@ -46,7 +46,7 @@ function blockCustomElementFactory(componentWhitelist) {
         if (!stop) {
           if (!(n.type === 'element' || (n.type === 'text' && (n.value === ' ' || n.value === '\n')))) {
             return {
-              nodes: nodes, 
+              nodes: nodes,
               stop: true
             };
           }

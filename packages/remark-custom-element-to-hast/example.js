@@ -1,29 +1,30 @@
 'use strict';
-const beautify = require("json-beautify");
-const unified = require('unified');
 const parseMD = require('remark-parse');
+const unified = require('unified');
 const customElementCompiler = require('.');
 
 const processor = unified()
   .use(parseMD)
   .use(customElementCompiler, {
     componentWhitelist: ['Note', 'Strong', 'InlineNote']
-  })
-  .process(
-    `*Hey!*
+  });
+const md =
+`# My title
 
-A <Note content="ceci devrait être affiché">
-  <Strong>Super\n *test*</Strong> avec du <InlineNote value="contenu"/>
-  dedans</Note> <InlineNote value='ainsi que' otherValue="d'autres surprises!" />
+_Hey!_
+
+<Note content="*Hello*" />
+
+A <Note content="This should be displayed">
+  <Strong>Cool _test_</Strong> with some <InlineNote value="content"/>
+  inside</Note> <InlineNote value='along' otherValue="other surprises!" />
 
 ## It also works within tables!
 
-A | B
---|--
-<Note value="wow" /> | b
-`,
-    function (err, file) {
-      err && console.error(err);
-      console.log(beautify(file.contents, null, 2, 100));
-      // then https://github.com/wooorm/remark-vdom/blob/master/index.js
-    });
+| A                    | B   |
+| -------------------- | --- |
+| <Note value="wow" /> | b   |
+`;
+const hast = processor.processSync(md).contents;
+
+console.log('result', JSON.stringify(hast, null, 2));

@@ -4,7 +4,7 @@ function getAllMatches(regexp, value) {
   var r = new RegExp(regexp, 'g');
   var matches = [];
   var singleMatch;
-  while (singleMatch = r.exec(value)) {
+  while ((singleMatch = r.exec(value)) !== null) {
     matches.push(singleMatch);
   }
   return matches;
@@ -89,7 +89,7 @@ function smartHtmlParser(componentWhitelist) {
       });
       return matches;
     }, valueDesc);
-  };
+  }
 
   function parseClosingTags(valueDesc) {
     return partialTokenizer(function (valueDesc) {
@@ -105,7 +105,7 @@ function smartHtmlParser(componentWhitelist) {
       });
       return matches;
     }, valueDesc);
-  };
+  }
 
   function parse(value, rawTransformer) {
     var tokens = pipeTokenizers([
@@ -115,59 +115,52 @@ function smartHtmlParser(componentWhitelist) {
       },
       function (v) {
         return parseOpeningTags(false, v);
-      },
+      }
     ], value);
 
     var tree = tokens.reduce(function (stack, t) {
+      var element;
       switch (t.type) {
         case 'closingTag':
-          {
-            var head = stack.pop();
-            if (head.tagName !== t.tagName) {
-              throw new Error();
-            }
-            head.endsAt = t.endsAt;
-            head.innerEndsAt = t.startsAt;
-            break;
+          element = stack.pop();
+          if (element.tagName !== t.tagName) {
+            throw new Error();
           }
+          element.endsAt = t.endsAt;
+          element.innerEndsAt = t.startsAt;
+          break;
         case 'openTag':
-          {
-            var element = {
-              type: 'element',
-              tagName: t.tagName,
-              properties: t.properties,
-              children: [],
-              startsAt: t.starts,
-              innerStartsAt: t.endsAt,
-            };
-            stack[stack.length - 1].children.push(element);
-            stack.push(element);
-            break;
-          }
+          element = {
+            type: 'element',
+            tagName: t.tagName,
+            properties: t.properties,
+            children: [],
+            startsAt: t.starts,
+            innerStartsAt: t.endsAt
+          };
+          stack[stack.length - 1].children.push(element);
+          stack.push(element);
+          break;
         case 'autoCloseTag':
-          {
-            var element = {
-              type: 'element',
-              tagName: t.tagName,
-              properties: t.properties,
-              children: [],
-              startsAt: t.starts,
-              endsAt: t.endsAt
-            };
-            stack[stack.length - 1].children.push(element);
-            break;
-          }
+          element = {
+            type: 'element',
+            tagName: t.tagName,
+            properties: t.properties,
+            children: [],
+            startsAt: t.starts,
+            endsAt: t.endsAt
+          };
+          stack[stack.length - 1].children.push(element);
+          break;
         default:
-          {
-            var element = rawTransformer ? rawTransformer(t) : {
-              type: 'text',
-              value: t.value,
-              startsAt: t.startsAt,
-              endsAt: t.endsAt
-            };
-            Array.prototype.push.apply(stack[stack.length - 1].children, element);
-            break;
-          }
+          element = rawTransformer ? rawTransformer(t) : {
+            type: 'text',
+            value: t.value,
+            startsAt: t.startsAt,
+            endsAt: t.endsAt
+          };
+          Array.prototype.push.apply(stack[stack.length - 1].children, element);
+          break;
       }
       return stack;
     }, [{
