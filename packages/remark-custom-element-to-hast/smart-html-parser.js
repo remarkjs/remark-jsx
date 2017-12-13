@@ -1,5 +1,7 @@
 'use strict';
 
+var blockElements = require('remark-parse/lib/block-elements.json');
+
 function getAllMatches(regexp, value) {
   var r = new RegExp(regexp, 'g');
   var matches = [];
@@ -68,7 +70,7 @@ var attributeValue = '(?:' + unquoted + '|' + singleQuoted + '|' + doubleQuoted 
 var attribute = '(?:\\s+' + attributeName + '(?:\\s*=\\s*' + attributeValue + ')?)';
 
 function smartHtmlParser(componentWhitelist) {
-  var components = componentWhitelist.join('|');
+  var components = blockElements.concat(componentWhitelist).join('|');
 
   function parseOpeningTags(isAutoClosing, valueDesc) {
     return partialTokenizer(function (valueDesc) {

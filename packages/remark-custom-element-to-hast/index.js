@@ -10,6 +10,7 @@ function plugin(options) {
   var settings = options || {};
   var componentWhitelist = settings.componentWhitelist || [];
   var proto = this.Parser.prototype;
+  proto.options.blocks = []; // Let's ignore this
 
   var customElement = customElementParser(componentWhitelist);
   customElement.locator = function (value, fromIndex) {
@@ -17,10 +18,10 @@ function plugin(options) {
   };
 
   proto.blockTokenizers.customElement = customElement;
-  proto.blockMethods.splice(proto.blockMethods.indexOf('html'), 0, 'customElement');
+  proto.blockMethods.splice(proto.blockMethods.indexOf('html'), 1, 'customElement');
 
   proto.inlineTokenizers.customElement = customElement;
-  proto.inlineMethods.splice(proto.inlineMethods.indexOf('html'), 0, 'customElement');
+  proto.inlineMethods.splice(proto.inlineMethods.indexOf('html'), 1, 'customElement');
 
   function pipeTransformers() {
     var transformers = [].concat.apply([], arguments);

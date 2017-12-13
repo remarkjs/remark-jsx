@@ -5,7 +5,7 @@ var customElementCompiler = require('../');
 
 var parser = unified()
   .use(parse)
-  .use(customElementCompiler, {componentWhitelist: ['MyComponent', 'Autoclose']});
+  .use(customElementCompiler, {componentWhitelist: ['MyComponent', 'Autoclose', 'Note']});
 
 describe('Components with nested markdown', function () {
   var md = 'This is a test <MyComponent myAttr="test">of how components\' **children**</MyComponent> are handled';
@@ -53,5 +53,27 @@ describe('Autoclosing components', function () {
     });
     expect(autoclose.children.length).toBe(0);
     expect(strong).toBeDefined();
+  });
+});
+
+describe('Inline components without breaking paragraphs', function () {
+  var md = '# This is a test \n Of a complex structure with a <Note text="note component"> \n  <h2>Hello</h2> \n  Will break the parsing \n  </Note> inside a paragraph. ';
+  it('should work with usual html tags', function () {
+    parser.process(md, function (err, file) {
+      expect(err).toBeNull();
+      var root = file && file.contents;
+      expect(root).toBeDefined();
+      expect(root.children.length).toBe(2);
+      expect(root.children[0].tagName).toEqual('h1');
+      var paragraph = root.children[1];
+      expect(paragraph.tagName).toEqual('p');
+      var note = paragraph.children.find(function (el) {
+        return el.tagName === 'Note';
+      });
+      expect(note).toBeDefined();
+      expect(note.children.find(function (el) {
+        return el.tagName === 'h2';
+      })).toBeDefined();
+    });
   });
 });
