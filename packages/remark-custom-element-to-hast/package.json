@@ -30,9 +30,6 @@
     "unist-util-map": "^1.0.3"
   },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
     "browserify": "^14.0.0",
     "commonmark.json": "^0.27.0",
     "esmangle": "^1.0.0",
@@ -52,7 +49,7 @@
   },
   "scripts": {
     "build-md": "remark *.md doc/*.md -qfo",
-    "build-bundle": "browserify index.js --bare -s remarkCustomElement2HAST -t [ babelify --presets [ env ] ] > remark-custom-element-to-hast.js",
+    "build-bundle": "browserify index.js --bare -s remarkCustomElement2HAST > remark-custom-element-to-hast.js",
     "build-mangle": "esmangle remark-custom-element-to-hast.js > remark-custom-element-to-hast.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
