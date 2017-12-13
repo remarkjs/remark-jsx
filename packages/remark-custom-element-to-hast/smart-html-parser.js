@@ -137,7 +137,7 @@ function smartHtmlParser(componentWhitelist) {
             tagName: t.tagName,
             properties: t.properties,
             children: [],
-            startsAt: t.starts,
+            startsAt: t.startsAt,
             innerStartsAt: t.endsAt
           };
           stack[stack.length - 1].children.push(element);
@@ -149,7 +149,7 @@ function smartHtmlParser(componentWhitelist) {
             tagName: t.tagName,
             properties: t.properties,
             children: [],
-            startsAt: t.starts,
+            startsAt: t.startsAt,
             endsAt: t.endsAt
           };
           stack[stack.length - 1].children.push(element);
