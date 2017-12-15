@@ -43,7 +43,7 @@ function partialTokenizer(subParser, valueDesc) {
   }
   Array.prototype.push.apply(matches, rawFragments.fragments);
   matches.sort(function (a, b) {
-    return a.startsAt > b.startsAt;
+    return a.startsAt - b.startsAt;
   });
   return matches;
 }
@@ -120,7 +120,6 @@ function smartHtmlParser(componentWhitelist) {
       }
     ], value);
 
-    tokens = tokens.sort(function(a,b){ return a.startsAt - b.startsAt; });
     var tree = tokens.reduce(function (stack, t) {
       var element;
       switch (t.type) {
