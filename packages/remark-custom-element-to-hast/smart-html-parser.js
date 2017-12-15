@@ -120,6 +120,7 @@ function smartHtmlParser(componentWhitelist) {
       }
     ], value);
 
+    tokens = tokens.sort(function(a,b){ return a.startsAt - b.startsAt; });
     var tree = tokens.reduce(function (stack, t) {
       var element;
       switch (t.type) {
