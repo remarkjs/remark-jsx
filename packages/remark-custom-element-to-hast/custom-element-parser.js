@@ -4,16 +4,17 @@ var smartHtmlParser = require('./smart-html-parser');
 
 module.exports = blockCustomElementFactory;
 
-function blockCustomElementFactory(componentWhitelist) {
+function blockCustomElementFactory(componentWhitelist, isBlockParser) {
   var parseHtml = smartHtmlParser(componentWhitelist);
 
   var running = false;
 
-  return function (eat, value) {
+  function parser(eat, value) {
     if (running) {
       return;
     }
     var self = this;
+    var tokenize = isBlockParser ? self.tokenizeBlock : self.tokenizeInline;
 
     try {
       running = true;
@@ -27,7 +28,7 @@ function blockCustomElementFactory(componentWhitelist) {
         var now = eat.now();
         var parsed = eat(substringToEat).reset({
           type: 'p',
-          value: self.tokenizeInline(substringToParse, now)
+          value: tokenize.call(self, substringToParse, now)
         }, dump);
         parsed.value.forEach(function (node) {
           node.unprocessed = true;
@@ -71,5 +72,11 @@ function blockCustomElementFactory(componentWhitelist) {
     } finally {
       running = false;
     }
+  }
+
+  parser.locator = function (value, fromIndex) {
+    return value.indexOf('<', fromIndex);
   };
+
+  return parser;
 }

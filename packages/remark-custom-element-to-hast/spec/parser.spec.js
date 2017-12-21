@@ -77,3 +77,22 @@ describe('Inline components without breaking paragraphs', function () {
     });
   });
 });
+
+describe('Block components', function () {
+  var md = '<Note>\n * Item 1\n * Item 2\n * Item 3\n * Item 4\n</Note>';
+  it('should accept block markdown as children', function () {
+    parser.process(md, function (err, file) {
+      expect(err).toBeNull();
+      var root = file && file.contents;
+      expect(root).toBeDefined();
+      expect(root.children.length).toBe(1);
+      expect(root.children[0].tagName).toEqual('Note');
+      expect(root.children[0].children.length).toBe(1);
+      var list = root.children[0].children[0];
+      expect(list.tagName).toEqual('ul');
+      var listItems = list.children;
+      expect(listItems).toBeDefined();
+      expect(listItems.length).toBe(4);
+    });
+  });
+});

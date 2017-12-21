@@ -12,15 +12,10 @@ function plugin(options) {
   var proto = this.Parser.prototype;
   proto.options.blocks = []; // Let's ignore this
 
-  var customElement = customElementParser(componentWhitelist);
-  customElement.locator = function (value, fromIndex) {
-    return value.indexOf('<', fromIndex);
-  };
-
-  proto.blockTokenizers.customElement = customElement;
+  proto.blockTokenizers.customElement = customElementParser(componentWhitelist, true);
   proto.blockMethods.splice(proto.blockMethods.indexOf('html'), 1, 'customElement');
 
-  proto.inlineTokenizers.customElement = customElement;
+  proto.inlineTokenizers.customElement = customElementParser(componentWhitelist, false);
   proto.inlineMethods.splice(proto.inlineMethods.indexOf('html'), 1, 'customElement');
 
   function pipeTransformers() {
