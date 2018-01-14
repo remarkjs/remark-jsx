@@ -50,9 +50,11 @@ function plugin(options) {
       /* Transform unprocessed inner MDAST node into HAST */
       function (node) {
         if (node.unprocessed) {
-          return toHAST(node, {
+          var result = toHAST(node, {
             allowDangerousHTML: false
           });
+          node.children = null;
+          return result;
         }
         return node;
       },

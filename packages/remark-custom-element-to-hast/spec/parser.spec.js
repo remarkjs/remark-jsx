@@ -79,7 +79,7 @@ describe('Inline components without breaking paragraphs', function () {
 });
 
 describe('Block components', function () {
-  var md = '<Note>\n * Item 1\n * Item 2\n * Item 3\n * Item 4\n</Note>';
+  var md = '<Note>\n* Item 1\n* Item 2\n* Item 3\n* Item 4\n</Note>';
   it('should accept block markdown as children', function () {
     parser.process(md, function (err, file) {
       expect(err).toBeNull();
@@ -92,7 +92,35 @@ describe('Block components', function () {
       expect(list.tagName).toEqual('ul');
       var listItems = list.children;
       expect(listItems).toBeDefined();
-      expect(listItems.length).toBe(4);
+      expect(listItems.length).toBe(9);
+      function listItem(text) {
+        return {
+          type: 'element',
+          tagName: 'li',
+          properties: {},
+          children: [
+            {
+              type: 'text',
+              value: text
+            }
+          ]
+        };
+      }
+      var newline = {
+        type: 'text',
+        value: '\n'
+      };
+      expect(listItems).toEqual([
+        newline,
+        listItem('Item 1'),
+        newline,
+        listItem('Item 2'),
+        newline,
+        listItem('Item 3'),
+        newline,
+        listItem('Item 4'),
+        newline
+      ]);
     });
   });
 });
