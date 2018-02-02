@@ -1,7 +1,7 @@
 'use strict';
 
 var toHAST = require('mdast-util-to-hast');
-var map = require('unist-util-map');
+var nodeMap = require('unist-util-map');
 var customElementParser = require('./custom-element-parser');
 
 module.exports = plugin;
@@ -21,18 +21,12 @@ function plugin(options) {
   function pipeTransformers() {
     var transformers = [].concat.apply([], arguments);
     return function (node) {
-      return transformers.reduce(map, node);
+      return transformers.reduce(nodeMap, node);
     };
   }
 
   this.Compiler = function (node) {
     var transform = pipeTransformers(
-      /* Initial tranform to HAST */
-      function (node) {
-        return toHAST(node, {
-          allowDangerousHTML: false
-        });
-      },
       /* Flatten false text nodes */
       function (node) {
         if (node.children) {
@@ -86,6 +80,15 @@ function plugin(options) {
         }
         return node;
       },
+      /* Remove unnecessary whitespace text */
+      function (node) {
+        if (node.children) {
+          node.children = node.children.filter(function (n) {
+            return !(n.type === 'text' && n.value === '\n');
+          });
+        }
+        return node;
+      },
       /* Remove unnecessary fields */
       function (node) {
         delete node.position;
@@ -96,7 +99,12 @@ function plugin(options) {
         return node;
       });
 
-    var result = transform(node);
+    /* Initial tranform to HAST */
+    var hast = toHAST(node, {
+      allowDangerousHTML: false
+    });
+    /* Chain transformers */
+    var result = transform(hast);
 
     return result;
   };
