@@ -1,0 +1,7 @@
+.DS_Store
+*.log
+.nyc_output/
+coverage/
+node_modules/
+hast-react-renderer.js
+hast-react-renderer.min.js

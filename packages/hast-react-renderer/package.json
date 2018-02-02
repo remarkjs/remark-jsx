@@ -1,0 +1,76 @@
+{
+  "name": "@dumpster/hast-react-renderer",
+  "version": "0.5.7",
+  "description": "Render hast into a react component",
+  "license": "MIT",
+  "keywords": [
+    "markdown",
+    "hast",
+    "react",
+    "custom elements",
+    "compile",
+    "remark"
+  ],
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/hast-react-renderer",
+  "bugs": "https://github.com/fazouane-marouane/remark-jsx/issues",
+  "author": "Marouane Fazouane <fazouanem3@gmail.com>",
+  "files": [
+    "index.js",
+    "hast-react-renderer.js",
+    "hast-react-renderer.min.js"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "browserify": "^14.0.0",
+    "esmangle": "^1.0.0",
+    "jasmine": "^2.8.0",
+    "nyc": "^11.4.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "remark": "^8.0.0",
+    "remark-cli": "^4.0.0",
+    "remark-github": "^7.0.0",
+    "remark-html": "^6.0.1",
+    "remark-parse": "^4.0.0",
+    "remark-preset-wooorm": "^3.0.0",
+    "remark-toc": "^4.0.0",
+    "tape": "^4.0.0",
+    "to-vfile": "^2.0.0",
+    "xo": "^0.18.0"
+  },
+  "scripts": {
+    "build-md": "remark *.md doc/*.md -qfo",
+    "build-bundle": "browserify index.js --bare -s hastReactRenderer > hast-react-renderer.js",
+    "build-mangle": "esmangle hast-react-renderer.js > hast-react-renderer.min.js",
+    "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
+    "lint": "xo",
+    "test-api": "node test/index.js",
+    "test-run": "jasmine",
+    "test-coverage": "nyc --reporter lcov tape test/index.js",
+    "test": "npm run build && npm run lint && npm run test-coverage && npm run test-run"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "functions": 100,
+    "branches": 100
+  },
+  "xo": {
+    "space": true,
+    "esnext": false,
+    "ignores": [
+      "hast-react-renderer.js",
+      "hast-react-renderer.min.js",
+      "dist/"
+    ]
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-wooorm"
+    ]
+  }
+}

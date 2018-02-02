@@ -1,5 +1,6 @@
 dist/
 build/
+**/.cache/
 
 # Created by https://www.gitignore.io/api/node,visualstudiocode,macos
 

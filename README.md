@@ -4,5 +4,6 @@
 
 This project is an attempt at a remark plugin that can enable users using React inside there markdown.
 
-The plugin for now, consists of one package:
-* [**@dumpster/remark-custom-element-to-hast**](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast): which `remark` to compile markdown that contain calls to custom elements into complete HAST.
+The plugin for now, consists of two packages:
+* [**@dumpster/remark-custom-element-to-hast**](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/remark-custom-element-to-hast): which uses `remark` to compile markdown that contain calls to custom elements into complete HAST.
+* [**@dumpster/hast-react-renderer**](https://github.com/fazouane-marouane/remark-jsx/tree/master/packages/hast-react-renderer): Transforms a HAST into a usable `react` component.
