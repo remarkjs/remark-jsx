@@ -1,6 +1,6 @@
 {
   "name": "@dumpster/hast-react-renderer",
-  "version": "0.5.7",
+  "version": "0.5.8",
   "description": "Render hast into a react component",
   "license": "MIT",
   "keywords": [
@@ -23,7 +23,6 @@
     "hast-react-renderer.js",
     "hast-react-renderer.min.js"
   ],
-  "dependencies": {},
   "devDependencies": {
     "browserify": "^14.0.0",
     "esmangle": "^1.0.0",
