@@ -24,6 +24,7 @@
     "hast-react-renderer.min.js"
   ],
   "devDependencies": {
+    "@dumpster/remark-custom-element-to-hast": "^0.5.8",
     "browserify": "^14.0.0",
     "esmangle": "^1.0.0",
     "jasmine": "^2.8.0",
@@ -39,6 +40,7 @@
     "remark-toc": "^4.0.0",
     "tape": "^4.0.0",
     "to-vfile": "^2.0.0",
+    "unified": "^6.1.6",
     "xo": "^0.18.0"
   },
   "scripts": {

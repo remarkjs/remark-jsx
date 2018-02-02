@@ -45,7 +45,6 @@ const MyDocument = renderer(hast, {
 });
 
 ReactDOM.render(<MyDocument />, document.getElementById('root'));
-
 ```
 
 [license-badge]: https://img.shields.io/github/license/mashape/apistatus.svg

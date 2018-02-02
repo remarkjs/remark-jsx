@@ -92,7 +92,7 @@ describe('Block components', function () {
       expect(list.tagName).toEqual('ul');
       var listItems = list.children;
       expect(listItems).toBeDefined();
-      expect(listItems.length).toBe(9);
+      expect(listItems.length).toBe(4);
       function listItem(text) {
         return {
           type: 'element',
@@ -106,20 +106,11 @@ describe('Block components', function () {
           ]
         };
       }
-      var newline = {
-        type: 'text',
-        value: '\n'
-      };
       expect(listItems).toEqual([
-        newline,
         listItem('Item 1'),
-        newline,
         listItem('Item 2'),
-        newline,
         listItem('Item 3'),
-        newline,
-        listItem('Item 4'),
-        newline
+        listItem('Item 4')
       ]);
     });
   });

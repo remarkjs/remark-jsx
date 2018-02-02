@@ -1,9 +1,9 @@
 'use strict';
 const parseMD = require('remark-parse');
 const unified = require('unified');
-const customElementCompiler = require('../remark-custom-element-to-hast');
+const customElementCompiler = require('@dumpster/remark-custom-element-to-hast');
 const React = require('react');
-const ReactDOM= require('react-dom');
+const ReactDOM = require('react-dom');
 const renderer = require('.')(React);
 
 const processor = unified()
@@ -40,14 +40,15 @@ console.log('result', hast);
 
 const App = renderer(hast, {
   components: {
-    InlineNote: function InlineNote(props) {
-      return React.createElement('span', {}, ["InlineNote: ", props.value]);
+    InlineNote: function (props) {
+      return React.createElement('span', {}, ['InlineNote: ', props.value]);
     },
-    Note: function Note(props) {
-      return React.createElement('span', {}, ["Note: ", props.value, props.children]);
+    Note: function (props) {
+      return React.createElement('span', {}, ['Note: ', props.value, props.children]);
     },
     Strong: 'strong'
   }
 });
 
+var document;
 ReactDOM.render(React.createElement(App), document.getElementById('root'));
