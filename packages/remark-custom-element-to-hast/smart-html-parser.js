@@ -6,8 +6,12 @@ function getAllMatches(regexp, value) {
   var r = new RegExp(regexp, 'g');
   var matches = [];
   var singleMatch;
+  var minValidIndex = 0;
   while ((singleMatch = r.exec(value)) !== null) {
-    matches.push(singleMatch);
+    if(singleMatch.index >= minValidIndex) {
+      minValidIndex = singleMatch.index + singleMatch[0].length;
+      matches.push(singleMatch);
+    }
   }
   return matches;
 }
@@ -64,27 +68,30 @@ function pipeTokenizers(tokenizers, value) {
 
 var attributeName = '[a-zA-Z_:][a-zA-Z0-9:._-]*';
 var unquoted = '([^"\'=<>`\\u0000-\\u0020]+)';
-var singleQuoted = '\'([^\']*)\'';
-var doubleQuoted = '"([^"]*)"';
+var singleQuoted = '\'((?:\\\\.|[^\\\'])*)(\')';
+var doubleQuoted = '"((?:\\\\.|[^\\"])*)(")';
 var attributeValue = '(?:' + unquoted + '|' + singleQuoted + '|' + doubleQuoted + ')';
 var attribute = '(?:\\s+' + attributeName + '(?:\\s*=\\s*' + attributeValue + ')?)';
 
 function smartHtmlParser(componentWhitelist) {
   var components = blockElements.concat(componentWhitelist).join('|');
 
-  function parseOpeningTags(isAutoClosing, valueDesc) {
+  function parseOpeningTags(valueDesc) {
     return partialTokenizer(function (valueDesc) {
-      var regexp = '<(' + components + ')(' + attribute + '*)\\s*' + (isAutoClosing ? '/>' : '>');
-      var propertiesRegex = '(' + attributeName + ')\\s*=\\s*' + attributeValue + '?';
+      var regexp = '<(' + components + ')(' + attribute + '*)\\s*(/?)>';
+      var propertiesRegex = '(' + attributeName + ')(?:\\s*=\\s*' + attributeValue + ')?';
       var matches = getAllMatches(regexp, valueDesc.value).map(function (match) {
         return {
           value: match[0],
-          type: isAutoClosing ? 'autoCloseTag' : 'openTag',
+          type: match[8] ? 'autoCloseTag' : 'openTag',
           tagName: match[1],
           startsAt: match.index + valueDesc.startsAt,
           endsAt: valueDesc.startsAt + match.index + match[0].length,
           properties: getAllMatches(propertiesRegex, match[2]).reduce(function (props, m) {
-            props[m[1]] = m[2] || m[3] || m[4];
+            var value = m[2] || m[3] || m[5];
+            var quote = m[4] || m[6];
+            var unescapedValue = quote ? value.replace(new RegExp('\\\\' + quote, "g"), quote): value;
+            props[m[1]] = value === undefined ? true : unescapedValue;
             return props;
           }, {})
         };
@@ -111,13 +118,8 @@ function smartHtmlParser(componentWhitelist) {
 
   function parse(value, rawTransformer) {
     var tokens = pipeTokenizers([
-      parseClosingTags,
-      function (v) {
-        return parseOpeningTags(true, v);
-      },
-      function (v) {
-        return parseOpeningTags(false, v);
-      }
+      parseOpeningTags,
+      parseClosingTags
     ], value);
 
     var tree = tokens.reduce(function (stack, t) {
