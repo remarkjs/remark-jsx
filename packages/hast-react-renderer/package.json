@@ -62,6 +62,9 @@
   },
   "xo": {
     "space": true,
+    "globals": [
+      "document"
+    ],
     "esnext": false,
     "ignores": [
       "hast-react-renderer.js",

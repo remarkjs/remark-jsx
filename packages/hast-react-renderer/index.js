@@ -8,8 +8,18 @@ function rendererFactory(React) {
   function renderer(ast, options) {
     var displayName = options.displayName;
     var components = options.components;
+    var unsafe = options.unsafe;
 
-    function AstRenderer() {
+    function AstRenderer(props) {
+      function unsafeEvalWithProps(code) {
+        var args = ['props', 'React'].concat(Object.keys(components));
+        var argsValue = [props, React].concat(Object.keys(components).map(function(k) {
+          return components[k];
+        }));
+        var func = Function.apply(null, args.concat(['return (' + code + ')']));
+        return func.apply(props, argsValue);
+      }
+
       /**
        * TODO:
        * 1. remove recursivity
@@ -19,9 +29,19 @@ function rendererFactory(React) {
         switch (node.type) {
           case 'element':
             var component = components[node.tagName] || node.tagName;
-            var props = Object.assign({}, node.properties, {key: String(key)});
+            var componentProps = {};
+            Object.keys(node.properties).forEach(function (propKey) {
+              if (propKey.indexOf('js:') === 0) {
+                componentProps[propKey.slice(3)] =
+                unsafe? unsafeEvalWithProps(node.properties[propKey], props):
+                node.properties[propKey];
+              } else {
+                componentProps[propKey] = node.properties[propKey];
+              }
+            });
+            componentProps.key = String(key);
             var children = node.children.map(createElementFromAst);
-            return createElement(component, props, children);
+            return createElement(component, componentProps, children.length ? children : undefined);
           case 'text':
             return node.value;
           default:
