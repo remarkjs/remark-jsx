@@ -25,6 +25,7 @@
   ],
   "devDependencies": {
     "@dumpster/remark-custom-element-to-hast": "^0.6.0",
+    "babel-standalone": "^6.26.0",
     "browserify": "^14.0.0",
     "esmangle": "^1.0.0",
     "jasmine": "^2.8.0",
@@ -69,7 +70,8 @@
     "ignores": [
       "hast-react-renderer.js",
       "hast-react-renderer.min.js",
-      "dist/"
+      "dist/",
+      "example/"
     ]
   },
   "remarkConfig": {

@@ -30,6 +30,8 @@
     "unist-util-map": "^1.0.3"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-react": "^6.24.1",
     "browserify": "^14.0.0",
     "commonmark.json": "^0.27.0",
     "esmangle": "^1.0.0",

@@ -16,7 +16,7 @@ function rendererFactory(React) {
         var argsValue = [props, React].concat(Object.keys(components).map(function(k) {
           return components[k];
         }));
-        var func = Function.apply(null, args.concat(['return (' + code + ')']));
+        var func = Function.apply(null, args.concat(['return '+ code]));
         return func.apply(props, argsValue);
       }
 

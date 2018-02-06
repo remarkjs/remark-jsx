@@ -17,7 +17,7 @@ A <Note content="This should be displayed">
 
 | A                    | B   |
 | -------------------- | --- |
-| <Note js:value="['wow', 'yo'].map((v, i) => React.createElement(Strong, {key: String(i)}, [v]))" /> | b   |
+| <Note js:value="['wow', 'yo'].map((v, i) => (<Strong key={String(i)}>{v}</Strong>))" /> | b   |
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|

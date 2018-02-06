@@ -6,11 +6,13 @@ const customElementCompiler = require('@dumpster/remark-custom-element-to-hast')
 const React = require('react');
 const ReactDOM = require('react-dom');
 const renderer = require('..')(React);
+const babel = require('babel-standalone');
 
 const processor = unified()
   .use(parseMD)
   .use(customElementCompiler, {
-    componentWhitelist: ['Note', 'input', 'Strong', 'InlineNote']
+    componentWhitelist: ['Note', 'input', 'Strong', 'InlineNote'],
+    babel: babel
   });
 const md = fs.readFileSync(__dirname + '/example.md', 'utf8');
 const hast = processor.processSync(md).contents;

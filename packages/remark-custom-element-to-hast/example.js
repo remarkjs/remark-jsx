@@ -2,18 +2,21 @@
 const parseMD = require('remark-parse');
 const unified = require('unified');
 const customElementCompiler = require('.');
+const babel = require('babel-core');
+require('babel-preset-react');
 
 const processor = unified()
   .use(parseMD)
   .use(customElementCompiler, {
-    componentWhitelist: ['Note', 'Strong', 'InlineNote']
+    componentWhitelist: ['Note', 'Strong', 'InlineNote'],
+    babel: babel
   });
 const md =
 `# My title
 
 _Hey!_
 
-<Note content="*Hello*" />
+<Note content="*Hello*" js:value="[1, 2, 3].map(v => (<InlineNote value={String(v)} />))" />
 
 A <Note content="This should be displayed">
   <Strong>Cool _test_</Strong> with some <InlineNote value="content"/>
