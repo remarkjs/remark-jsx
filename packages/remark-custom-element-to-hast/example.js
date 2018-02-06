@@ -1,9 +1,8 @@
 'use strict';
 const parseMD = require('remark-parse');
 const unified = require('unified');
-const customElementCompiler = require('.');
 const babel = require('babel-core');
-require('babel-preset-react');
+const customElementCompiler = require('.');
 
 const processor = unified()
   .use(parseMD)

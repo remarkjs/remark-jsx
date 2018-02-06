@@ -13,10 +13,10 @@ function rendererFactory(React) {
     function AstRenderer(props) {
       function unsafeEvalWithProps(code) {
         var args = ['props', 'React'].concat(Object.keys(components));
-        var argsValue = [props, React].concat(Object.keys(components).map(function(k) {
+        var argsValue = [props, React].concat(Object.keys(components).map(function (k) {
           return components[k];
         }));
-        var func = Function.apply(null, args.concat(['return '+ code]));
+        var func = Function.apply(null, args.concat(['return ' + code]));
         return func.apply(props, argsValue);
       }
 
@@ -33,7 +33,7 @@ function rendererFactory(React) {
             Object.keys(node.properties).forEach(function (propKey) {
               if (propKey.indexOf('js:') === 0) {
                 componentProps[propKey.slice(3)] =
-                unsafe? unsafeEvalWithProps(node.properties[propKey], props):
+                unsafe ? unsafeEvalWithProps(node.properties[propKey], props) :
                 node.properties[propKey];
               } else {
                 componentProps[propKey] = node.properties[propKey];

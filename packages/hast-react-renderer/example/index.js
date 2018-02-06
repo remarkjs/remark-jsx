@@ -14,6 +14,7 @@ const processor = unified()
     componentWhitelist: ['Note', 'input', 'Strong', 'InlineNote'],
     babel: babel
   });
+
 const md = fs.readFileSync(__dirname + '/example.md', 'utf8');
 const hast = processor.processSync(md).contents;
 
@@ -32,4 +33,4 @@ const App = renderer(hast, {
   }
 });
 
-ReactDOM.render(React.createElement(App, {title: "My Title"}), document.getElementById('root'));
+ReactDOM.render(React.createElement(App, {title: 'My Title'}), document.getElementById('root'));

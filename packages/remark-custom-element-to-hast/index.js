@@ -96,7 +96,7 @@ function plugin(options) {
           Object.keys(node.properties).forEach(function (key) {
             if (key.indexOf('js:') === 0) {
               var code = node.properties[key];
-              node.properties[key] = babel.transform('(' + code + ')', { presets:['react'] }).code;
+              node.properties[key] = babel.transform('(' + code + ')', {presets: ['react']}).code;
             }
           });
         }

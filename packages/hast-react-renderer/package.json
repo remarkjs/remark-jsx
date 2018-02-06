@@ -71,7 +71,7 @@
       "hast-react-renderer.js",
       "hast-react-renderer.min.js",
       "dist/",
-      "example/"
+      "example/*"
     ]
   },
   "remarkConfig": {

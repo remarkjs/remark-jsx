@@ -8,7 +8,7 @@ function getAllMatches(regexp, value) {
   var singleMatch;
   var minValidIndex = 0;
   while ((singleMatch = r.exec(value)) !== null) {
-    if(singleMatch.index >= minValidIndex) {
+    if (singleMatch.index >= minValidIndex) {
       minValidIndex = singleMatch.index + singleMatch[0].length;
       matches.push(singleMatch);
     }
@@ -90,7 +90,7 @@ function smartHtmlParser(componentWhitelist) {
           properties: getAllMatches(propertiesRegex, match[2]).reduce(function (props, m) {
             var value = m[2] || m[3] || m[5];
             var quote = m[4] || m[6];
-            var unescapedValue = quote ? value.replace(new RegExp('\\\\' + quote, "g"), quote): value;
+            var unescapedValue = quote ? value.replace(new RegExp('\\\\' + quote, 'g'), quote) : value;
             props[m[1]] = value === undefined ? true : unescapedValue;
             return props;
           }, {})
