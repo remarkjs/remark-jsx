@@ -34,6 +34,7 @@
     "babel-preset-react": "^6.24.1",
     "browserify": "^14.0.0",
     "commonmark.json": "^0.27.0",
+    "cross-env": "^5.1.3",
     "esmangle": "^1.0.0",
     "is-hidden": "^1.0.1",
     "jasmine": "^2.8.0",
@@ -57,14 +58,15 @@
     "lint": "xo",
     "test-api": "node test/index.js",
     "test-run": "jasmine",
+    "update-fixtures": "cross-env UPDATE_TESTS=1 tape test/index.js",
     "test-coverage": "nyc --reporter lcov tape test/index.js",
-    "test": "npm run build && npm run lint && npm run test-coverage && npm run test-run"
+    "test": "npm run build && npm run lint && npm run test-coverage"
   },
   "nyc": {
     "check-coverage": true,
     "lines": 100,
     "functions": 100,
-    "branches": 100
+    "branches": 98
   },
   "xo": {
     "space": true,

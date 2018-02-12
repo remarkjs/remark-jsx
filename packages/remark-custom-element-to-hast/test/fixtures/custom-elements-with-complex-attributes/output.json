@@ -1,0 +1,84 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "value": "This should not be parsed as _markdown_"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "optionalValue": true
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "optional-value": true
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "simple-quotes": "hi"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "unquoted": "hello"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "js:cool-stuff": "41 + 1"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "apostrophes": "'\""
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "attr1": "\"",
+        "attr2": "Hey"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "nested-element": "<Component />"
+      },
+      "children": []
+    }
+  ]
+}

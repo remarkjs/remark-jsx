@@ -1,0 +1,14 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {
+        "js:value": "[1, 2, 3].map(v => React.createElement(InlineNote, { value: String(v) }));",
+        "js:another-value": "41 + 1;"
+      },
+      "children": []
+    }
+  ]
+}

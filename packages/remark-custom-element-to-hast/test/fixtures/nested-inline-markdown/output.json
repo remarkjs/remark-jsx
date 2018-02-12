@@ -1,0 +1,151 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a test "
+        },
+        {
+          "type": "element",
+          "tagName": "MyComponent",
+          "properties": {
+            "myAttr": "test"
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "of how components\\' "
+            },
+            {
+              "type": "element",
+              "tagName": "strong",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "children"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " are handled"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a test of "
+        },
+        {
+          "type": "element",
+          "tagName": "Autoclose",
+          "properties": {
+            "value": "test"
+          },
+          "children": []
+        },
+        {
+          "type": "text",
+          "value": " components. "
+        },
+        {
+          "type": "element",
+          "tagName": "MyComponent",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Let\\'s try to nest "
+            },
+            {
+              "type": "element",
+              "tagName": "Autoclose",
+              "properties": {
+                "value": "ok"
+              },
+              "children": []
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "type": "element",
+              "tagName": "strong",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "mixed content"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a test"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": " Of a complex structure with a "
+        },
+        {
+          "type": "element",
+          "tagName": "Note",
+          "properties": {
+            "text": "note component"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tagName": "h2",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Hello"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": "\nWill break the parsing\n"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": " inside a paragraph."
+        }
+      ]
+    }
+  ]
+}

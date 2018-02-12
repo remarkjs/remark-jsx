@@ -157,12 +157,16 @@ function smartHtmlParser(componentWhitelist) {
           stack[stack.length - 1].children.push(element);
           break;
         default:
-          element = rawTransformer ? rawTransformer(t) : {
+          /*
+           The default rawTransformer should return something in the line of
+           {
             type: 'text',
             value: t.value,
             startsAt: t.startsAt,
             endsAt: t.endsAt
-          };
+          }
+           */
+          element = rawTransformer(t);
           Array.prototype.push.apply(stack[stack.length - 1].children, element);
           break;
       }

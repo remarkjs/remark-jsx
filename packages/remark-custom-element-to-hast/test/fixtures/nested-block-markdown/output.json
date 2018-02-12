@@ -1,0 +1,819 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Lists"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h2",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "With a dash"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "ul",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "first"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "second"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "third"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h2",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "With a star"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "ul",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "first"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "second"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "third"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h2",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "With a plus sign"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "ul",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "first"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "second"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "third"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h2",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Links or images"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "a",
+              "properties": {
+                "href": "https://www.google.com"
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "value": "I'm an inline-style link"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "img",
+              "properties": {
+                "src": "http://path/to/img.jpg",
+                "alt": "alt text",
+                "title": "Title"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Mixed content"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "h1",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "This is heading tag."
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "blockquote",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "p",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This is blockquoted text"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "ul",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "first"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "second"
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "li",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "third"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Tables"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "table",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "thead",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "tr",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "th",
+                      "properties": {
+                        "align": null
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Tables"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "th",
+                      "properties": {
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Are"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "th",
+                      "properties": {
+                        "align": "right"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Cool"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "tbody",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "tr",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": null
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "col 3 is"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "right-aligned"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": "right"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "$1600"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "tr",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": null
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "col 2 is"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "centered"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": "right"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "$12"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "tr",
+                  "properties": {},
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": null
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "zebra stripes"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": "center"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "are neat"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "element",
+                      "tagName": "td",
+                      "properties": {
+                        "align": "right"
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "$1"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "table",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "thead",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "tr",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "th",
+                  "properties": {
+                    "align": "left"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Heading1"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "th",
+                  "properties": {
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Heading2"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "th",
+                  "properties": {
+                    "align": "right"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Heading3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "tbody",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "tr",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "left"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "Component",
+                      "properties": {},
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "10"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "right"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "42"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "tr",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "left"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Hello"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "12"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "right"
+                  },
+                  "children": [
+                    {
+                      "type": "element",
+                      "tagName": "Component",
+                      "properties": {},
+                      "children": [
+                        {
+                          "type": "element",
+                          "tagName": "em",
+                          "properties": {},
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Hello"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Blockquotes"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "blockquote",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "p",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This is blockquoted text."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Horizontal rule"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Should get a horizontal rule below"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "hr",
+          "properties": {},
+          "children": []
+        },
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "And above this text"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

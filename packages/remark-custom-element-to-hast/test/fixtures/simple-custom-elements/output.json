@@ -1,0 +1,332 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Simple usages"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "This custom element will be parsed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "my-custom-element",
+      "properties": {
+        "attr1": "Hello there",
+        "attr2": "Is there anyone here?",
+        "yes": true
+      },
+      "children": [
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "even this one"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Syntax"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "If you look close enough you'll see that this is a mix between a custome element and JSX syntax: "
+        },
+        {
+          "type": "element",
+          "tagName": "Note",
+          "properties": {
+            "optionalValue": true,
+            "namespace:my-attribute": "OHAI"
+          },
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "It will be parsed into the following:"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "pre",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "code",
+          "properties": {
+            "className": [
+              "language-json"
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "{\n  \"type\": \"element\",\n  \"tagName\": \"Note\",\n  \"properties\": {\n    \"optionalValue\": true,\n    \"namespace:my-attribute\": \"OHAI\"\n  },\n  \"children\": []\n}\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "It can also work in block mode"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {},
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {},
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "h2",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Nesting"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Now you'll see that it can also accept nesting"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "my-custom-element",
+          "properties": {},
+          "children": []
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "pre",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "code",
+          "properties": {
+            "className": [
+              "language-json"
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "{\n  \"type\": \"element\",\n  \"tagName\": \"Note\",\n  \"properties\": {},\n  \"children\": [\n    {\n      \"type\": \"element\",\n      \"tagName\": \"my-custom-element\",\n      \"properties\": {},\n      \"children\": []\n    }\n  ]\n}\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Escapes"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Of course, custom elements that are located inside a code block would be parsed as such:"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "So the following "
+        },
+        {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "<Note />"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "value": "  will be parsed as"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "pre",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "code",
+          "properties": {
+            "className": [
+              "language-json"
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "{\n  \"type\": \"element\",\n  \"tagName\": \"code\",\n  \"properties\": {},\n  \"children\": [\n    {\n      \"type\": \"text\",\n      \"value\": \"<Note />\"\n    }\n  ]\n}\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "The following"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "pre",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "code",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "<Note />\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Will produce the following result:"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "pre",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "code",
+          "properties": {
+            "className": [
+              "language-json"
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "value": "{\n  \"type\": \"element\",\n  \"tagName\": \"pre\",\n  \"properties\": {},\n  \"children\": [\n    {\n      \"type\": \"element\",\n      \"tagName\": \"code\",\n      \"properties\": {},\n      \"children\": [\n        {\n          \"type\": \"text\",\n          \"value\": \"<Note />\\n\"\n        }\n      ]\n    }\n  ]\n}\n"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

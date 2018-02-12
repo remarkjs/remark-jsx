@@ -1,0 +1,24 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {
+        "value": "boring values"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "a \\\nb   c"
+        }
+      ]
+    }
+  ]
+}

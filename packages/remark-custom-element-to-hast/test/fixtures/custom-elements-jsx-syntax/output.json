@@ -1,0 +1,81 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "js:cool-stuff": "41 + 1"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "HOC",
+      "properties": {
+        "js:value": "[1, 2, 3].map(v => (<Component value={v} />))"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "HOC",
+      "properties": {
+        "value": "val1"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tagName": "HOC",
+          "properties": {
+            "value": "val2"
+          },
+          "children": [
+            {
+              "type": "element",
+              "tagName": "Component",
+              "properties": {
+                "js:value": "{\n      x: 42,\n      y: {\n        a: 24,\n        b: 'some stuff'\n      }\n    }"
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "value": "<Component value='hey'/>"
+      },
+      "children": []
+    },
+    {
+      "type": "element",
+      "tagName": "Component",
+      "properties": {
+        "value": "</Component><Component>"
+      },
+      "children": [
+        {
+          "type": "element",
+          "tagName": "Component",
+          "properties": {},
+          "children": []
+        },
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": " \""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
