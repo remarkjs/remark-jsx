@@ -1,0 +1,402 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Hello"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "This is a simple markdown file."
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "table",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "thead",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "tr",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "th",
+                  "properties": {
+                    "align": "left"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Aligned to the left"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "th",
+                  "properties": {
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Centered"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "th",
+                  "properties": {
+                    "align": "right"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Table header 3"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "tbody",
+          "properties": {},
+          "children": [
+            {
+              "type": "element",
+              "tagName": "tr",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "left"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "With a boring cell"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Hey"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "right"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "42"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "element",
+              "tagName": "tr",
+              "properties": {},
+              "children": [
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "left"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Another cell"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "center"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Wassup"
+                    }
+                  ]
+                },
+                {
+                  "type": "element",
+                  "tagName": "td",
+                  "properties": {
+                    "align": "right"
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "9000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "blockquote",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "p",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Why not a blockquote which contain some words in "
+            },
+            {
+              "type": "element",
+              "tagName": "strong",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Bold"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": " and some others in "
+            },
+            {
+              "type": "element",
+              "tagName": "em",
+              "properties": {},
+              "children": [
+                {
+                  "type": "text",
+                  "value": "italic"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "value": ". Maybe even some simple html like <em>like one</em>."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "<em>hey</em>"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "This file is boring"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "I can think of a few reasons why this file is boring:"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "ol",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "The content is dull"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "I can be playing on my playstation right now"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "I can see that even the author is bored just by reading these few lines"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Where are all the cool custom elements/jsx ?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "h1",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Suggestions"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "Here are a few things I suggest to improve this file:"
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "ul",
+      "properties": {},
+      "children": [
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "A lorem ipsum would have sufficed"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Add some ponies or something"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "Maybe some cats, dogs and unicorns too"
+            }
+          ]
+        },
+        {
+          "type": "element",
+          "tagName": "li",
+          "properties": {},
+          "children": [
+            {
+              "type": "text",
+              "value": "And a few other ponies"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "element",
+      "tagName": "p",
+      "properties": {},
+      "children": [
+        {
+          "type": "text",
+          "value": "<Note>This custom element wouldn't be parsed</Note>\n<my-custom-element>Not event this one</my-custom-element>"
+        }
+      ]
+    }
+  ]
+}

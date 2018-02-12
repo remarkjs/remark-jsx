@@ -1,0 +1,14 @@
+{
+  "type": "root",
+  "children": [
+    {
+      "type": "element",
+      "tagName": "Note",
+      "properties": {
+        "js:value": "\"use strict\";[1,2,3].map(function(v){return React.createElement(InlineNote,{value:String(v)})});",
+        "js:another-value": "\"use strict\";41+1;"
+      },
+      "children": []
+    }
+  ]
+}

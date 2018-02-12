@@ -9,6 +9,7 @@ module.exports = plugin;
 function plugin(options) {
   var settings = options || {};
   var babel = settings.babel;
+  var babelOptions = settings.babelOptions || {presets: ['react'], minified: true};
   var componentWhitelist = settings.componentWhitelist || [];
   var proto = this.Parser.prototype;
   proto.options.blocks = []; // Let's ignore this
@@ -96,7 +97,7 @@ function plugin(options) {
           Object.keys(node.properties).forEach(function (key) {
             if (key.indexOf('js:') === 0) {
               var code = node.properties[key];
-              node.properties[key] = babel.transform('(' + code + ')', {presets: ['react']}).code;
+              node.properties[key] = babel.transform('(' + code + ')', babelOptions).code;
             }
           });
         }

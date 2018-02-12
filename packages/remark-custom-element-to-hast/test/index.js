@@ -28,24 +28,32 @@ function toJson(object) {
 /* Assert fixtures. */
 fixtures.forEach(function (fixture) {
   var filepath = path.join(FIXTURE_ROOT, fixture);
-  var expectedOutput = readFile(filepath, 'output.json');
   var input = readFile(filepath, 'input.md');
-  var configFiles = fs.readdirSync(filepath).filter(function (filename) {
-    return /^config(.\d+)?.js$/.test(filename);
-  }).map(function (configFilename) {
-    return require(path.join(filepath, configFilename));
+  var configFiles = fs.readdirSync(filepath).map(function (filename) {
+    return filename.match(/^config(.\d+)?.js$/);
+  }).filter(function (match) {
+    return match;
+  }).map(function (match) {
+    var configFilename = match[0];
+    var ext = match[1] || '';
+    return {
+      data: require(path.join(filepath, configFilename)),
+      ext: ext
+    };
   });
 
   configFiles.forEach(function (config) {
     test('Fixtures: ' + fixture, function (t) {
+      var outputName = 'output' + config.ext + '.json';
+      var expectedOutput = readFile(filepath, outputName);
       var processor = unified()
         .use(parseMD)
-        .use(customElementCompiler, config);
+        .use(customElementCompiler, config.data);
 
       var output = toJson(processor.processSync(input).contents);
 
       if (process.env.UPDATE_TESTS) {
-        writeToFile(filepath, 'output.json', output);
+        writeToFile(filepath, outputName, output);
       }
       t.equal(output, expectedOutput, 'should work on `' + fixture + '`');
       t.end();
