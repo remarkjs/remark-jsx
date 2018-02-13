@@ -1,6 +1,6 @@
 {
   "name": "@dumpster/hast-react-renderer",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Render hast into a react component",
   "license": "MIT",
   "keywords": [
@@ -24,7 +24,7 @@
     "hast-react-renderer.min.js"
   ],
   "devDependencies": {
-    "@dumpster/remark-custom-element-to-hast": "^0.7.0",
+    "@dumpster/remark-custom-element-to-hast": "^0.7.1",
     "babel-standalone": "^6.26.0",
     "browserify": "^14.0.0",
     "esmangle": "^1.0.0",
